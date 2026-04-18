@@ -96,7 +96,7 @@ struct StackBuffer {
   std::array<T, capacity_ + (2 * padding)> buffer_;
 
   explicit StackBuffer(const std::size_t capacity,
-                       const Allocator &allocator = Allocator()) {
+                       [[maybe_unused]] const Allocator &allocator = Allocator()) {
     if (capacity) {
       throw std::invalid_argument(
           "Capacity in constructor is ignored for stack allocations");
